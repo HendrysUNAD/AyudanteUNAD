@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "content_scripts": [{
+    "js": ["contentscript.js"],
+    "matches": ["https://*.unad.edu.co/*/mod/assign/view.php*"],
+    "run_at": "document_end"
+  }],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "name": "Ayudante para UNAD",
+  "description": "Ejecuta un script que permite cargar todas las pestañas de los grupos asignados en una tarea en Campus",
+  "version": "1.0",
+
+  "icons": {
+    "48": "icon.png"
+  },
+
+  "permissions": [
+  "tabs",
+  "activeTab",
+  "storage",
+  "windows"
+],
+
+"host_permissions": [
+  "<all_urls>"
+],
+
+  "web_accessible_resources": [
+  {
+    "resources": [
+      "scriptUNAD.js"
+    ],
+    "matches": [
+      "https://*.unad.edu.co/*"
+    ]
+  }
+],
+
+  "action": {
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"     
+    },
+    "default_popup": "popup.html",
+    "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+  }
+}
