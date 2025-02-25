@@ -1,4 +1,4 @@
-# SIMCAHelper
+# Ayudante UNAD 
 *Autor*: Hendrys Tobar, Profesor de ECBTI. El maestro Creativo. 
 
 //TODO: Explicar qué hace el sistema
@@ -21,4 +21,4 @@
 
 ## Uso
 
-//TODO: Explicar el uso
+Para usarla basta con que acceda a la página del Campus donde va a evaluar a los estudiantes. Verá un botón que dice "Abrir todos los grupos". Presione ese botón para cargar todos su grupos en pestañas de Chrome.
