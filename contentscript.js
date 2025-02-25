@@ -47,7 +47,7 @@ console.log("Ejecutando Content Script...");
       var index = 1;
       idGrupos.forEach(id => {
         // Construye la nueva URL
-        const nuevaURL = window.location.href + '&action=grading&group=' + id;
+        const nuevaURL = window.location.href + '&action=downloadall&group=' + id;
         chrome.runtime.sendMessage({ action: "createWindow", url: nuevaURL }, function(response) {
             console.log("Respuesta del background:", response);
           });
