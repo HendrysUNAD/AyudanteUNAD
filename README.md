@@ -1,7 +1,12 @@
 # Ayudante UNAD 
 *Autor*: Hendrys Tobar, Profesor de ECBTI. El maestro Creativo. 
 
-//TODO: Explicar qué hace el sistema
+Esta extensión permite que usted ahorre tiempo al cargar todos los grupos de estudiantes en la vista de calificación de tarea. Normalmente, el sistema Moodle no permite cargar todos los estudiantes al mismo tiempo (ya que usa la configuración de "Grupos separados"), con lo que uno debe dar a un selector tantas veces como grupos tenga asignados.
+
+¡PUES ESO SE ACABó!
+
+Ahora usted puede dar a un solo botón para que cargue todos los grupos al mismo tiempo.
+Con esta extensión.
 
 ## Instalación
 
