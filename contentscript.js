@@ -1,5 +1,28 @@
 console.log("Ejecutando Content Script...");
 (function() {
+
+  // Verifica si la URL actual incluye "forum" o "assign" en la posición especificada
+  const url = window.location.href;
+  const regexForum = /https:\/\/.*\.unad\.edu\.co\/.*\/mod\/forum\/view\.php\?.*/;
+  const regexAssign = /https:\/\/.*\.unad\.edu\.co\/.*\/mod\/assign\/view\.php\?.*/;
+
+  var nombreDelBoton = "ButtonNAME";
+  var accion = "";
+
+  if (regexForum.test(url)) {
+    console.log("La URL incluye 'forum' en la posición especificada.");
+    nombreDelBoton = "Abrir todos los foros"
+    accion = "";
+  } else if (regexAssign.test(url)) {
+    console.log("La URL incluye 'assign' en la posición especificada.");
+    // Código específico para "assign"
+    accion = '&action=downloadall';
+    nombreDelBoton = "Descargar todas las tareas";
+  } else {
+    console.log("La URL no incluye 'forum' ni 'assign' en la posición especificada.");
+  }
+   
+   
     // Busca el formulario con id "selectgroup"
     const form = document.getElementById('selectgroup');
     if (!form) {
@@ -10,7 +33,7 @@ console.log("Ejecutando Content Script...");
     // Crea el botón y configura sus atributos
     const button = document.createElement("button");
     button.id = "abrirGrupos";
-    button.textContent = "Abrir todos los grupos";
+    button.textContent = nombreDelBoton;
     
     // Opcional: agregar estilos para que el botón se destaque dentro del form
     button.style.padding = "10px";
@@ -47,7 +70,7 @@ console.log("Ejecutando Content Script...");
       var index = 1;
       idGrupos.forEach(id => {
         // Construye la nueva URL
-        const nuevaURL = window.location.href + '&action=downloadall&group=' + id;
+        const nuevaURL = window.location.href + accion + '&group=' + id;
         chrome.runtime.sendMessage({ action: "createWindow", url: nuevaURL }, function(response) {
             console.log("Respuesta del background:", response);
           });
@@ -56,4 +79,3 @@ console.log("Ejecutando Content Script...");
       });
     });
   })();
-  

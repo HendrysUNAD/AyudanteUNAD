@@ -1,10 +1,12 @@
 {
   "manifest_version": 3,
-  "content_scripts": [{
+  "content_scripts":
+   [{
     "js": ["contentscript.js"],
-    "matches": ["https://*.unad.edu.co/*/mod/assign/view.php*"],
+    "matches": ["https://*.unad.edu.co/*/mod/assign/view.php*", "https://*.unad.edu.co/*/mod/forum/view.php?*"],
     "run_at": "document_end"
-  }],
+  }]
+  ,
 
   "background": {
     "service_worker": "background.js"
