@@ -34,8 +34,10 @@
   "web_accessible_resources": [
   {
     "resources": [
-      "scriptUNAD.js"
-    ],
+      "scriptUNAD.js",
+      "icono_buzon.png",
+        "icono_normal.png"
+     ],
     "matches": [
       "https://*.unad.edu.co/*"
     ]
