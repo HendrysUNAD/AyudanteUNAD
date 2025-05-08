@@ -5,21 +5,26 @@ console.log("Ejecutando Content Script...");
   const url = window.location.href;
   const regexForum = /https:\/\/.*\.unad\.edu\.co\/.*\/mod\/forum\/view\.php\?.*/;
   const regexAssign = /https:\/\/.*\.unad\.edu\.co\/.*\/mod\/assign\/view\.php\?.*/;
-
+  
   var nombreDelBoton = "ButtonNAME";
   var accion = "";
 
-  if (regexForum.test(url)) {
+  if (regexForum.test(url)) 
+  {
     console.log("La URL incluye 'forum' en la posición especificada.");
     nombreDelBoton = "Abrir todos los foros"
     accion = "";
-  } else if (regexAssign.test(url)) {
+  } 
+  else if (regexAssign.test(url)) {
     console.log("La URL incluye 'assign' en la posición especificada.");
     // Código específico para "assign"
     accion = '&action=downloadall';
     nombreDelBoton = "Descargar todas las tareas";
-  } else {
+  } 
+  else
+  {
     console.log("La URL no incluye 'forum' ni 'assign' en la posición especificada.");
+    return;
   }
 
 
@@ -124,4 +129,26 @@ function changeFavicon(iconPath) {
 
   
 }
+
+// Función principal que revisa la URL y busca los elementos con las clases correspondientes
+function checkForUnreadMessages() {
+  // Revisa si la URL coincide con el patrón de discusión del foro
+  console.log("Ejecutando script para revisar si hay mensajes no leídos...");
+  if (window.location.href.match(/https:\/\/.*\.unad\.edu\.co\/.*\/mod\/forum\/discuss\.php\?d=\d+/)) {
+    console.log("Ejecutando script para ver si hay mensajes no leídos y luego cambiar el favicon del foro de discusión...");
+
+    // Busca un div con las clases "forumpost" y "unread"
+    const unreadPost = document.querySelector('div.forumpost.unread');
+    
+    if (unreadPost) {
+      // Si se encuentra el div con las clases correspondientes, cambia el favicon al icono de buzón
+      console.log("Se encontraron mensajes no leídos en la discusión del foro.");
+      changeFavicon('icono_buzon.png');
+    }
+  }
+}
+
+// Llama a la función para verificar si estamos en la página de discusión y si hay mensajes no leídos
+
+checkForUnreadMessages();
 

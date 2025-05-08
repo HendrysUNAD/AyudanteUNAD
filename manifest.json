@@ -3,7 +3,10 @@
   "content_scripts":
    [{
     "js": ["contentscript.js"],
-    "matches": ["https://*.unad.edu.co/*/mod/assign/view.php*", "https://*.unad.edu.co/*/mod/forum/view.php?*"],
+    "matches": ["https://*.unad.edu.co/*/mod/assign/view.php*",
+     "https://*.unad.edu.co/*/mod/forum/view.php?*",     
+     "https://*.unad.edu.co/*/mod/forum/discuss.php?d=*"
+],
     "run_at": "document_end"
   }]
   ,
